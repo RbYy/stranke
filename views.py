@@ -47,12 +47,6 @@ class ObiskForm(forms.Form):
 class ProduktForm(forms.Form):
     ime = forms.CharField(max_length=30)
     okrajsava = forms.CharField(max_length=5)
-    
-def vstopna(request):
-    from django.core.mail import EmailMessage
-    email = EmailMessage('Subject', 'Body', 'robert.brumat@siol.net')
-    email.save()
-    return render(request, 'polls/index.html')
 
 
 
