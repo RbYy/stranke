@@ -1,0 +1,101 @@
+body {
+    background: #FFFFD1;
+    margin: 20px;
+    font-family:     Verdana, Geneva, Arial, sans-serif;
+    font-size: x-small;
+    }
+
+#tabela {
+    display: table;
+    }
+
+#vrsta {
+    display: table-row;
+    }
+.skladisce_vse {
+    font-size: xx-small;
+}
+#desno {
+    display: table-cell;
+    margin: 10px;
+    padding: 20px;
+    }
+#levo {
+    display: table-cell;
+    margin: 10px;
+    padding: 20px;
+
+}
+table {
+    margin-left:      20px;
+    margin-right:     20px;
+    border:           thin solid black;
+    caption-side:     bottom;
+    border-collapse:  collapse;
+ 
+    }
+
+
+td, th {
+    border:           thin dotted gray;
+    padding-left:          10px;
+    padding-right:    10px;       
+    width:            110px;
+    }
+
+th {
+  background-color: gold;
+  height: 20px;
+}
+
+/*.cellcolor {
+  background-color: #fcba7a;
+}*/
+
+
+caption {
+  font-style:       italic;
+  padding-top:      8px;
+}
+
+.datum {
+    text-align:       center;
+    }
+.demo {
+    text-align:       center;
+    }
+.prodaja {
+    text-align:       center;
+    }
+.znesek {
+    text-align:       center;
+    }
+
+.right {
+    text-align:       right;
+    }
+/*
+li {
+  list-style-image: url(images/backpack.gif); 
+  padding-top:      5px;
+  margin-left:      10px;
+    }*/
+
+.vrstica {
+    height: 25px;
+}
+/*.vrstica:nth-of-type(3n) {
+    background-color: #FFFF99;
+    }
+.vrstica:nth-of-type(even) {
+    background-color: #FFFFB8;
+} */
+.skladisce {
+    width: 200px;   
+}
+.vsota {
+    text-align: right;
+}
+.skladisce_vse {
+    height: auto;
+}

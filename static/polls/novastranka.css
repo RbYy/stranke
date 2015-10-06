@@ -1,0 +1,50 @@
+﻿body {
+	background: #FFFFD1;
+	margin: 20px;
+	font-family:     Verdana, Geneva, Arial, sans-serif;
+	font-size: small;
+
+
+}
+
+form {
+	display: table;
+	padding: 10px;
+	border: thin dotted #7e7e7e;
+	background-color: #FFFF99;
+	width: 500px;
+}
+
+ul {
+    padding: 10px;
+    border: thin dotted #7e7e7e;
+    background-color: #FFFF99;
+    list-style-type: none;
+}
+#id_prodaja {
+    width:200px;
+}
+
+form textarea {
+
+	height: 200px;
+}
+
+p {
+	display: table-row;
+
+}
+
+p label{
+	display: table-cell;
+	padding: 8px;
+	text-align: right;
+	width: 70px;
+}
+
+p input {
+    width: 370px;
+}
+p.heading {
+	font-weight: bold;
+}

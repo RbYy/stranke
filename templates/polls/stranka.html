@@ -1,0 +1,155 @@
+{% extends "polls/base.html" %}
+
+{% block glava %}
+<style> input{ width: 80%; }</style> 
+{{ form.media }} 
+{% endblock %}
+
+{% block jumbo %}
+    <div class="row">
+     <div class="col-xs-4">
+        <h3>Stranka: {{p.podjetje}}</h3>
+     </div>
+     <ul class="list-unstyled list-group col-xs-4" style="text-align:right;">
+        <li class="stranka">{{p.podjetje}}</li>
+        <!--li class="naslov">{{p.naslov}}</li-->
+        <li class="kraj">{{p.kraj}}</li>
+        <li class="oseba">kontakt: {{p.oseba}}</li>        
+     </ul>
+     <ul class="list-unstyled list-group col-xs-4" style="text-align:left;">
+
+        
+     </ul>
+    </div>  
+         
+{% endblock %}
+      
+{% block vsebina %}
+<div id="tabela" class="row">    
+    
+    <div class=' col-xs-10 table-responsive' >
+        <table  class="table table-hover">
+
+              <caption>
+               Aktivnosti pri stranki {{p.podjetje}} <p class="strani" style="text-align:right"></p>
+              </caption>
+              <thead>
+              <tr>
+                <th style="width: 20%;">Datum obiska</th>
+                 <th style="width: 34%;">Demonstracije</th>
+                 <th style="width: 31%;">Prodaja</th>
+                 <th style="width: 12%; text-align:right;">Znesek</th>
+                 <th style="width: 3%;">briši</th>
+              </tr>
+              </thead>
+              
+              <tbody><!-- vsebina tabele --></tbody>
+        </table>
+    </div>
+
+
+    <div id="desno" class="col-xs-2">
+    <p>Izberi časovno obdobje</p>
+         <form>
+            <div class="input-daterange" id="datePicker">
+                <div class="form-group">
+                    <div class="input-group datePickerStart date">
+                        <input type="text" data-date="2014-12-12" class="form-control form-control" required="required" name="startDate" id="startDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <p class="">do</p>
+                <div class="form-group">
+                    <div data-date="2016-12-12" class="input-group datePickerEnd date">
+                        <input type="text"  class="form-control form-control" name="endDate" id="endDate" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <br>
+    <p title="{{oblak_filter}}"><span> filtriraj po prometu ali produktih</span><input class="form-control" type="text" value="" id="fil" name="fil"/></p>
+   
+
+    
+    <p><a class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal"> Dodaj nov obisk </a></p>
+    <a href="{% url 'stranke4:stranke' %}"class="btn btn-info btn-md"> izberi drugo stranko </a>
+</div>
+</div>
+    
+</div>
+{% endblock %} 
+
+{% block ostalo %}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+                </button>
+                <h5 class="modal-title" id="myModalLabel">Nov obisk</h5>
+            </div>
+                
+            <form method="get" id="forma" action="/stranka/{{p.id}}/" > {% csrf_token %}
+                <div class="modal-body" style="text-align:right">
+                   
+                {% for field in form.visible_fields %}
+                <div id="div_{{ field.html_name }}"
+                     class="form-group{% if field.errors %} has-error{% endif %}">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    <div class="text-muted pull-right">
+                        <small>{{ field.help_text }}</small>
+                    </div>
+                    <div class="help-block">
+                        {{ field.errors }}
+                    </div>
+                </div>
+                {% endfor %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}               
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Prekliči</button>
+                <button type="submit" class="btn btn-primary dodaj">Dodaj!</button>
+            </div>
+        </form>
+    </div><!-- /.modal-content -->
+    </div> <!-- .modal dialog-->
+</div><!-- /.modal -->    
+
+<div class="modal fade" id="brisiModal" tabindex="-1" role="dialog" aria-labelledby="brisiModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+                </button>
+                <h5 class="modal-title" id="brisiModalLabel">Izbris obiska</h5>
+            </div>
+                <div class="modal-body" style="text-align:right">
+                   <h4>Ali res želiš odstraniti obisk?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+                    <span  id="brisi" class="btn btn-primary">Ja</span>
+                </div>
+    </div><!-- /.modal-content -->S
+    </div>
+</div><!-- /.modal -->
+
+
+<script>
+    var stranka_id ={{p.id}};
+    var pot='{% url 'stranke4:filtriraj_obiske' stranka_id %}';
+</script> 
+{% load staticfiles %}
+<script src="{% static 'js/stranke.js' %}"></script>
+{% endblock %}
+

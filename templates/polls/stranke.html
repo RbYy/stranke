@@ -1,0 +1,105 @@
+{% extends "polls/base.html" %}
+
+{% block jumbo %}
+    <div class="row">
+     <div class="col-xs-4">
+        <h3>Seznam strank</h3>
+     </div>
+     <ul class="list-unstyled list-group col-xs-4" style="text-align:right;">
+        <li>stevilo vnosov</li>
+        <li>stevilo strank</li>
+        <li>promet</li>
+        <li>povprečna zaključnica</li>
+     </ul>
+     <ul class="list-unstyled list-group col-xs-4" style="text-align:left;">
+        <li class="stevilo_vnosov"></li>
+        <li class="stevilo_strank"></li>
+        <li class="promet"></li>
+        <li class="povp_zaklj"></li>
+     </ul>
+    </div>   
+          
+{% endblock %}
+
+
+{% block vsebina %}
+<div id="tabela" class="row">    
+    
+    <div class='col-xs-10 table-responsive'>
+    <table  class="table table-hover">
+    <caption></caption>
+       <thead> 
+        <tr>
+         <th style="width: 40%;">podjetje</th>
+         <th style="width: 30%;">kraj</th>
+         <th style="width: 10%;">promet</th>
+         <th style="width: 17%; text-align:right;">nazadnje</th>
+         <th style="width: 3%;">briši</th>
+        </tr>
+       </thead> 
+       <tbody>
+       </tbody>
+    </table></div>
+        
+    <div id="desno" class="col-xs-2">
+        <p><span>filtriraj po nazivu ali kraju </span><input type="text" class="form-control" name="po_nazivu" value="" id="po_nazivu" /></p>
+        <p><span>filtriraj po produktih </span><input type="text" class="form-control" name="po_produktih" value="" id="po_produktih" /></p>
+        <p><span>filtriraj po prometu  </span><input type="text" class="form-control" pattern="\d*" name="suggestion" value="" id="suggestion" /></p>
+        <p><a class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal"> Dodaj novo stranko </a></p>
+        <p><a href='{% url "stranke4:dodaj_produkt" %}' class="btn btn-info btn-md">  Dodaj nov produkt   </a></p>
+    </div> 
+</div> <!--row-->
+{% endblock %}
+
+{% block ostalo %}
+<div class="modal fade" id="brisiModal" tabindex="-1" role="dialog" aria-labelledby="brisiModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+                </button>
+                <h5 class="modal-title" id="brisiModalLabel">Izbris stranke</h5>
+            </div>
+                <div class="modal-body" style="text-align:right">
+                   <h4>Ali res želiš odstraniti stranko?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+                    <span  id="brisi" class="btn btn-primary">Ja</span>
+                </div>
+    </div><!-- /.modal-content -->
+    </div>
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+                </button>
+                <h5 class="modal-title" id="myModalLabel">Nova stranka</h5>
+            </div>
+                
+            <form method="post" action="{% url 'stranke4:stranke' %}"> {% csrf_token %}
+                <div class="modal-body" style="text-align:right">
+                   
+                    {{ form.as_p }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Prekliči</button>
+                    <button type="submit" class="btn btn-primary">Dodaj!</button>
+                </div>
+            </form>
+    </div><!-- /.modal-content -->
+    </div>
+</div><!-- /.modal -->
+
+{% load staticfiles %}
+<script>
+    var pokazi_listo='{% url 'stranke4:pokazi_listo' %}';
+</script>
+<script src="{% static 'js/stranka.js' %}"></script>
+{% endblock %}
