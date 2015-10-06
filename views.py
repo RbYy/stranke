@@ -273,7 +273,6 @@ def filtriraj_obiske(request, stranka_id):
     data=json.dumps(struct, cls=DjangoJSONEncoder)
     cas = datetime.now()-zacetek
     print('trajanje: ', cas)
-    #print('obiski', data)
     return HttpResponse(data)
     
 
@@ -330,6 +329,8 @@ def stranka(request, stranka_id):
                                                   'form':form,
                                                   'stranka_id':stranka_id,
                                                   'oblak_filter':oblak_filter})
+    
+
 
 @login_required
 def odjava(*args, **kwargs):
