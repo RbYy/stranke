@@ -274,6 +274,7 @@ def filtriraj_obiske(request, stranka_id):
     cas = datetime.now()-zacetek
     print('trajanje: ', cas)
     return HttpResponse(data)
+    # da vidimo ali git opazi to
     
 
 @login_required
