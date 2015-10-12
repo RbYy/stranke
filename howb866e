@@ -1,0 +1,71 @@
+[33mcommit 1f1e9ce7d130927c446e0b8648908e0cd89c1f67[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Sun Oct 11 00:45:54 2015 +0200
+
+    pospravi
+
+[33mcommit 04cd8e7a3653963f010ff9508e3258f7a23cc8c6[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Thu Oct 8 19:56:33 2015 +0200
+
+    "odstrani .idea"
+
+[33mcommit 5109ab11821833aa449550fae6e0a2b8b35c62f7[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Thu Oct 8 19:53:23 2015 +0200
+
+    dopolnjen gitignore
+
+[33mcommit 3df424e4337b79f4a1606982211cac800e60ae6f[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Wed Oct 7 21:54:57 2015 +0200
+
+    odstranjen .gitignore
+
+[33mcommit 7bfd59209dcd49cffc90986ec80845b50f250b92[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Wed Oct 7 21:54:00 2015 +0200
+
+    odstranjen .idea
+
+[33mcommit 2dec1c864c9b2bae80bfee450d22c6cd9c8aebc9[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Wed Oct 7 21:50:48 2015 +0200
+
+    odstranjen __pycache__
+
+[33mcommit 72339aa0de90458a67a689b7bba3ed99bd59299d[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Wed Oct 7 21:39:14 2015 +0200
+
+    dodan .gitignore
+
+[33mcommit b866e06efd97082bea2b49c2f32bfc8cbe992f11[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Wed Oct 7 21:38:09 2015 +0200
+
+    dopolnjeni docstring
+
+[33mcommit 812f3371d771cd7082a2df91b499f260890ffe07[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Wed Oct 7 21:31:11 2015 +0200
+
+    dopolnjeni docstring
+
+[33mcommit bce956886ec99a9e09a5632d66b580ce471b063e[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Tue Oct 6 19:28:50 2015 +0200
+
+    kozmeticna sprememba
+
+[33mcommit 6f9bcbf9a589815796ea4bc550391c7ad6c1ab01[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Tue Oct 6 19:24:54 2015 +0200
+
+    odstrani slepo view funkcijo
+
+[33mcommit 8534fd2479b58585c5d283c88367fc8d80f4fb89[m
+Author: RbYy <robert.brumat@gmail.com>
+Date:   Tue Oct 6 19:22:19 2015 +0200
+
+    odstrani slepo view funkcijo
